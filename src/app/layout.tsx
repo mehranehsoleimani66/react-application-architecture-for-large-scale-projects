@@ -1,6 +1,6 @@
 import { Figtree } from "next/font/google";
-import { Footer } from "./_components/footer/footer";
-import { Header } from "./_components/header/header";
+import { Footer } from "./_components/footer";
+import { Header } from "./_components/header";
 import "./globals.css";
 
 const figtree = Figtree({

@@ -64,6 +64,19 @@ const config: Config = {
   theme: {
     colors: tailwindColors,
   },
+  extend: {
+    backgroundImage: {
+      "hero-pattern": "url('/images/tile.svg')",
+    },
+  },
+  container: {
+    center: true,
+    padding: {
+      DEFAULT: "1rem",
+      lg: "3rem",
+      xl: "4rem",
+    },
+  },
   darkMode: "class",
   plugins: [],
 };
