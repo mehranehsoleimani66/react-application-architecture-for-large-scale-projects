@@ -1,6 +1,7 @@
 import classNames from "classnames";
+import { Loading } from "../loading";
 import { Size } from "../types/size.type";
-import { ButtonShape, buttonProps } from "./button.types";
+import { ButtonProps, ButtonShape } from "./button.types";
 
 const sizeClasses: Record<Size, string> = {
   tiny: "btn-xs",
@@ -8,7 +9,7 @@ const sizeClasses: Record<Size, string> = {
   normal: "",
   large: "btn-lg",
 };
-
+//export type ButtonShape = "default" | "wide" | "full" | "square";
 const shapeClasses: Record<ButtonShape, string> = {
   wide: "btn-wide",
   full: "btn-block",
@@ -16,11 +17,11 @@ const shapeClasses: Record<ButtonShape, string> = {
   default: "",
 };
 
-export const Button: React.FC<buttonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   variant,
   size = "normal",
   isDisabled = false,
-  isOutlined = false,
+  isOutline = false,
   shape = "default",
   isLoading = false,
   loadingType = "spinner",
@@ -31,13 +32,13 @@ export const Button: React.FC<buttonProps> = ({
   className,
   animatedIcon = false,
   ...rest
-}: buttonProps) => {
+}: ButtonProps) => {
   const classes = classNames(
     "btn",
     className,
     { [`btn-${variant}`]: variant },
-    { [`${sizeClasses[size]}`]: size },
-    { "btn-outline": isOutlined },
+    { [`${sizeClasses[size]}`]: size }, //person={name:"ali" , age:86}  person['name']  parson.name
+    { "btn-outline": isOutline },
     { "btn-link": isLink },
     { [`${shapeClasses[shape]}`]: shape },
     { "animated-icon": animatedIcon },
@@ -45,6 +46,7 @@ export const Button: React.FC<buttonProps> = ({
   );
   return (
     <button type={type} disabled={isDisabled} className={classes} {...rest}>
+      {isLoading && <Loading type={loadingType} />}
       {isLoading ? loadingText : children}
     </button>
   );
