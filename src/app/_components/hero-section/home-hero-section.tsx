@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Button } from "./button/button";
+import { Button } from "../button/button";
+import { IconArrowLeftFill } from "../icons/icons";
 
-export default function HeroSection() {
+export const HomeHeroSection: React.FC = () => {
   return (
     <section className="bg-hero-pattern bg-no-repeat bg-center xl:bg-left mt-5 xl:mt-20">
       <div className="container flex flex-col-reverse items-center xl:flex-row">
@@ -17,9 +18,10 @@ export default function HeroSection() {
             کلاسبن می‌تونی بدون محدودیت به قله‌های بالاتر صعود کنی. ما همیشه
             هواتو داریم.
           </p>
-          <div className="mt-5 flex gap-4">
-            <Button variant="neutral" size="large">
+          <div className="mt-5 flex justify-center xl:justify-start gap-4">
+            <Button variant="primary" size="large" className="animated-icon">
               دوره‌های ری‌اکت و نکست
+              <IconArrowLeftFill fill="currentColor" />
             </Button>
             <Button variant="neutral" size="large">
               مشاوره برنامه‌نویسی
@@ -42,4 +44,4 @@ export default function HeroSection() {
       </div>
     </section>
   );
-}
+};
