@@ -1,3 +1,4 @@
+import { Rating } from "@/app/_components/rating/rating";
 import type { CourseDetails } from "@/app/_components/types/course-detail.interface";
 import { API_URL } from "@/configs/global";
 
@@ -36,7 +37,9 @@ export default async function CourseDetails({
 
         <div className=" mt-5">Video Player Component</div>
       </div>
-      <div className="col-span-10 xl:col-span-3 bg-secondary"></div>
+      <div className="col-span-10 xl:col-span-3 bg-secondary">
+        <Rating size="small" variant="warning" rate={5} />
+      </div>
       <div className="col-span-10 xl:col-span-6 bg-info"></div>
       <div className="col-span-10 xl:col-span-4 bg-warning"></div>
     </div>
