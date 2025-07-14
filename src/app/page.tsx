@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { homeFeatures } from "../../data/home-features";
 import { testimonials } from "../../data/testimonial";
 import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
-import { CourseCardList } from "./(courses)/_components/card-course-list";
+import { CourseCardList } from "./(courses)/components/card-course-list";
 import { Button } from "./_components/button/button";
 import { Feature } from "./_components/feature/fearure";
 import { HomeHeroSection } from "./_components/hero-section/home-hero-section";
