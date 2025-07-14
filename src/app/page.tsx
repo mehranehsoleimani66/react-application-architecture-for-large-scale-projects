@@ -18,6 +18,7 @@ async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
   });
   return res.json();
 }
+
 export default async function Home() {
   const newestBlogPostsData = getNewestPosts(4);
   // Wait for the promises to resolve

@@ -1,5 +1,5 @@
 import { Progress } from "@/app/_components/progress";
-import { Rating } from "@/app/_components/rating/rating";
+import { Rating } from "@/app/_components/rating";
 import type { CourseDetails } from "@/app/_components/types/course-detail.interface";
 import { API_URL } from "@/configs/global";
 
