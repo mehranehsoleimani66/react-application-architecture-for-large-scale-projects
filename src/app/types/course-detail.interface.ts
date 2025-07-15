@@ -1,6 +1,6 @@
-import { CourseLevel } from "../../../../enums/courses-level.enum";
+import { CourseLevel } from "../../../enums/courses-level.enum";
 
-export interface CourseDetails {
+export interface CourseDetailsProps {
   title: string;
   basePrice?: number;
   numberOfLectures: number;

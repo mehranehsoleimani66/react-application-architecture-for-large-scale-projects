@@ -1,7 +1,7 @@
-import { CourseDetails } from "../../../../_components/types/course-detail.interface";
+import { CourseDetailsProps } from "@/app/types/course-detail.interface";
 
 export type CourseAsideProps = Pick<
-  CourseDetails,
+  CourseDetailsProps,
   | "basePrice"
   | "numberOfLectures"
   | "numOfStudents"

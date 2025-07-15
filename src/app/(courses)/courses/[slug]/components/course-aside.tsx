@@ -10,13 +10,28 @@ import {
   IconRecord,
   IconStudents,
 } from "@/app/_components/icons/icons";
-import { Price } from "@/app/_components/price/price";
+
 import { Progress } from "@/app/_components/progress";
 import { Rating } from "@/app/_components/rating";
-import { Variant } from "@/app/_components/types/variant.type";
+
 import { API_URL } from "@/configs/global";
+
+import { Price } from "@/app/_components/price/price";
+import { Variant } from "@/app/types/variant.type";
 import { CourseLevel } from "../../../../../../enums/courses-level.enum";
 import { CourseAsideProps } from "./course-aside.types";
+
+const levelVariant: Record<CourseLevel, Variant> = {
+  0: "warning",
+  1: "info",
+  2: "success",
+};
+
+const levelProgress: Record<CourseLevel, number> = {
+  0: 25,
+  1: 50,
+  2: 100,
+};
 
 export const CourseAside: React.FC<CourseAsideProps> = ({
   basePrice,
@@ -33,17 +48,6 @@ export const CourseAside: React.FC<CourseAsideProps> = ({
   profileImageId,
   levelNumber,
 }) => {
-  const levelVariant: Record<CourseLevel, Variant> = {
-    0: "warning",
-    1: "info",
-    2: "success",
-  };
-
-  const levelProgress: Record<CourseLevel, number> = {
-    0: 25,
-    1: 50,
-    2: 100,
-  };
   return (
     <aside className="flex flex-col gap-5 sticky top-5">
       <div className="flex items-center justify-between">
@@ -63,8 +67,8 @@ export const CourseAside: React.FC<CourseAsideProps> = ({
           </div>
           <Progress
             size="tiny"
-            variant={levelVariant[levelNumber!]}
-            value={levelProgress[levelNumber!]}
+            variant={levelVariant[levelNumber as CourseLevel]}
+            value={levelProgress[levelNumber as CourseLevel]}
           />
         </div>
       </div>

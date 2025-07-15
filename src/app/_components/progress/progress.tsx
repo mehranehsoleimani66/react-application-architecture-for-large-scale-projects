@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { Size } from "../types/size.type";
+
+import { Size } from "@/app/types/size.type";
 import { ProgressProps } from "./progress.types";
 
 const sizeClasses: Record<Size, string> = {
@@ -9,15 +10,15 @@ const sizeClasses: Record<Size, string> = {
   large: "progress-lg",
 };
 
-export const Progress: React.FC<ProgressProps> = ({
+export const Progress = ({
   variant = "neutral",
   className,
   size = "small",
   value,
-}) => {
+}: ProgressProps) => {
   const classes = classNames("progress", className, {
     [`progress-${variant}`]: variant,
-    [`${sizeClasses[size]}`]: size,
+    [sizeClasses[size]]: true, // ✅ اینجا دیگه اروری نیست
   });
 
   return <progress value={value} max="100" className={classes} />;
