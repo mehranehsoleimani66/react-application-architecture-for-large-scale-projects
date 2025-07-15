@@ -1,4 +1,7 @@
+import { Accordion } from "@/app/_components/accordion";
 import { Tabs } from "@/app/_components/tabs";
+
+import { accorrionType } from "@/app/types/accordion.types";
 import { TabProps } from "@/app/types/tabs.types";
 import { API_URL } from "@/configs/global";
 import { CourseDetailsProps } from "../../../../app/types/course-detail.interface";
@@ -25,7 +28,13 @@ export default async function CourseDetails({
 }) {
   const { slug } = params;
   const course = await getCourse(slug);
-
+  console.log("coursessssssss", course);
+  const faqs: accorrionType[] = course.frequentlyAskedQuestions.map((faq) => ({
+    id: faq.id,
+    title: faq.question,
+    content: faq.answer,
+  }));
+  console.log("faqs", faqs);
   const tabs: TabProps[] = [
     {
       label: "مشخصات دوره",
@@ -37,7 +46,7 @@ export default async function CourseDetails({
     },
     {
       label: "سوالات متداول",
-      content: "accordion components",
+      content: <Accordion data={faqs} />,
     },
   ];
 
