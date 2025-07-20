@@ -9,6 +9,6 @@ export const CourseComments = () => {
   const { data: comments } = useCourseComments({
     params: { slug: slug as string, page: 1 },
   });
-  console.log("++++++++++++++++++++", comments);
+
   return <>{comments?.data.map((comment) => <p>{comment.commentText}</p>)}</>;
 };
