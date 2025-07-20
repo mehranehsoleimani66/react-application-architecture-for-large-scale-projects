@@ -17,7 +17,8 @@
     "colord": "^2.9.3",
     "next": "^14.2.30",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.6.0",

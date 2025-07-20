@@ -2,6 +2,7 @@ import { Figtree } from "next/font/google";
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
 import "./globals.css";
+import { QueryProvider } from "./provider/react-query-provider";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -17,9 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl" className={`dark ${figtree.variable}`}>
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] mr-5  dark:bg-base-100 dark:text-base-content">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <QueryProvider>
+          {" "}
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );
