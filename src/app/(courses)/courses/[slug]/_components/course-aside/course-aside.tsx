@@ -18,7 +18,7 @@ import { API_URL } from "@/configs/global";
 
 import { Price } from "@/app/_components/price/price";
 import { Variant } from "@/app/types/variant.type";
-import { CourseLevel } from "../../../../../../enums/courses-level.enum";
+import { CourseLevel } from "../../../../../../../enums/courses-level.enum";
 import { CourseAsideProps } from "./course-aside.types";
 
 const levelVariant: Record<CourseLevel, Variant> = {

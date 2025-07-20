@@ -5,7 +5,8 @@ import { accorrionType } from "@/app/types/accordion.types";
 import { TabProps } from "@/app/types/tabs.types";
 import { API_URL } from "@/configs/global";
 import { CourseDetailsProps } from "../../../../app/types/course-detail.interface";
-import { CourseAside } from "./components/course-aside";
+import { CourseComments } from "./_components/comments/comments";
+import { CourseAside } from "./_components/course-aside/course-aside";
 
 export async function generateStaticParams() {
   const slugs = await fetch(`${API_URL}/courses/slugs`).then((res) =>
@@ -28,7 +29,7 @@ export default async function CourseDetails({
 }) {
   const { slug } = params;
   const course = await getCourse(slug);
-  console.log("coursessssssss", course);
+
   const faqs: accorrionType[] = course.frequentlyAskedQuestions.map((faq) => ({
     id: faq.id,
     title: faq.question,
@@ -42,7 +43,7 @@ export default async function CourseDetails({
     },
     {
       label: "دیدگاه‌ها و پرسش",
-      content: "course comments",
+      content: <CourseComments />,
     },
     {
       label: "سوالات متداول",
