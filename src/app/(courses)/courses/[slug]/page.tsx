@@ -5,8 +5,8 @@ import { accorrionType } from "@/app/types/accordion.types";
 import { TabProps } from "@/app/types/tabs.types";
 import { API_URL } from "@/configs/global";
 import { CourseDetailsProps } from "../../../../app/types/course-detail.interface";
-import { CourseComments } from "./_components/comments/comments";
 import { CourseAside } from "./_components/course-aside/course-aside";
+import { CourseComments } from "./_components/course-comments/course-comments";
 
 export async function generateStaticParams() {
   const slugs = await fetch(`${API_URL}/courses/slugs`).then((res) =>
@@ -35,7 +35,7 @@ export default async function CourseDetails({
     title: faq.question,
     content: faq.answer,
   }));
-  console.log("faqs", faqs);
+
   const tabs: TabProps[] = [
     {
       label: "مشخصات دوره",
